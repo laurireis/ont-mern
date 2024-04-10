@@ -31,6 +31,7 @@ export default function Record() {
         navigate('/')
         return
       }
+      delete record._id
       setForm(record)
     }
     fetchData()
@@ -58,7 +59,7 @@ export default function Record() {
         })
       } else {
         response = await fetch(`http://localhost:5200/employees/${params.id}`, {
-          method: 'PATCH',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
